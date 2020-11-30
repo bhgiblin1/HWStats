@@ -93,7 +93,7 @@
             this.gpuTemp.InnerColor = System.Drawing.Color.Empty;
             this.gpuTemp.InnerMargin = 2;
             this.gpuTemp.InnerWidth = -1;
-            this.gpuTemp.Location = new System.Drawing.Point(28, 263);
+            this.gpuTemp.Location = new System.Drawing.Point(42, 275);
             this.gpuTemp.MarqueeAnimationSpeed = 2000;
             this.gpuTemp.Name = "gpuTemp";
             this.gpuTemp.OuterColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(236)))), ((int)(((byte)(248)))));
@@ -125,7 +125,7 @@
             this.gpuClockSpeed.InnerColor = System.Drawing.Color.Empty;
             this.gpuClockSpeed.InnerMargin = 2;
             this.gpuClockSpeed.InnerWidth = -1;
-            this.gpuClockSpeed.Location = new System.Drawing.Point(404, 263);
+            this.gpuClockSpeed.Location = new System.Drawing.Point(418, 275);
             this.gpuClockSpeed.MarqueeAnimationSpeed = 2000;
             this.gpuClockSpeed.Name = "gpuClockSpeed";
             this.gpuClockSpeed.OuterColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(236)))), ((int)(((byte)(248)))));
@@ -156,7 +156,7 @@
             this.gpuLoad.InnerColor = System.Drawing.Color.Empty;
             this.gpuLoad.InnerMargin = 2;
             this.gpuLoad.InnerWidth = -1;
-            this.gpuLoad.Location = new System.Drawing.Point(216, 263);
+            this.gpuLoad.Location = new System.Drawing.Point(230, 275);
             this.gpuLoad.MarqueeAnimationSpeed = 2000;
             this.gpuLoad.Name = "gpuLoad";
             this.gpuLoad.OuterColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(236)))), ((int)(((byte)(248)))));
@@ -183,7 +183,7 @@
             this.gpuTempLabel.AutoSize = true;
             this.gpuTempLabel.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpuTempLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
-            this.gpuTempLabel.Location = new System.Drawing.Point(85, 296);
+            this.gpuTempLabel.Location = new System.Drawing.Point(99, 308);
             this.gpuTempLabel.Name = "gpuTempLabel";
             this.gpuTempLabel.Size = new System.Drawing.Size(58, 24);
             this.gpuTempLabel.TabIndex = 9;
@@ -194,7 +194,7 @@
             this.gpuLoadLabel.AutoSize = true;
             this.gpuLoadLabel.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpuLoadLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
-            this.gpuLoadLabel.Location = new System.Drawing.Point(270, 296);
+            this.gpuLoadLabel.Location = new System.Drawing.Point(284, 308);
             this.gpuLoadLabel.Name = "gpuLoadLabel";
             this.gpuLoadLabel.Size = new System.Drawing.Size(57, 24);
             this.gpuLoadLabel.TabIndex = 10;
@@ -210,7 +210,7 @@
             this.cpuLoad.InnerColor = System.Drawing.Color.Empty;
             this.cpuLoad.InnerMargin = 2;
             this.cpuLoad.InnerWidth = -1;
-            this.cpuLoad.Location = new System.Drawing.Point(216, 47);
+            this.cpuLoad.Location = new System.Drawing.Point(230, 59);
             this.cpuLoad.MarqueeAnimationSpeed = 2000;
             this.cpuLoad.Name = "cpuLoad";
             this.cpuLoad.OuterColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(236)))), ((int)(((byte)(248)))));
@@ -242,7 +242,7 @@
             this.cpuTemp.InnerColor = System.Drawing.Color.Empty;
             this.cpuTemp.InnerMargin = 2;
             this.cpuTemp.InnerWidth = -1;
-            this.cpuTemp.Location = new System.Drawing.Point(28, 47);
+            this.cpuTemp.Location = new System.Drawing.Point(42, 59);
             this.cpuTemp.MarqueeAnimationSpeed = 2000;
             this.cpuTemp.Name = "cpuTemp";
             this.cpuTemp.OuterColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(236)))), ((int)(((byte)(248)))));
@@ -269,7 +269,7 @@
             this.cpuLoadLabel.AutoSize = true;
             this.cpuLoadLabel.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cpuLoadLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
-            this.cpuLoadLabel.Location = new System.Drawing.Point(270, 78);
+            this.cpuLoadLabel.Location = new System.Drawing.Point(284, 90);
             this.cpuLoadLabel.Name = "cpuLoadLabel";
             this.cpuLoadLabel.Size = new System.Drawing.Size(57, 24);
             this.cpuLoadLabel.TabIndex = 14;
@@ -280,7 +280,7 @@
             this.cpuTempLabel.AutoSize = true;
             this.cpuTempLabel.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cpuTempLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
-            this.cpuTempLabel.Location = new System.Drawing.Point(85, 78);
+            this.cpuTempLabel.Location = new System.Drawing.Point(99, 90);
             this.cpuTempLabel.Name = "cpuTempLabel";
             this.cpuTempLabel.Size = new System.Drawing.Size(58, 24);
             this.cpuTempLabel.TabIndex = 13;
@@ -292,7 +292,7 @@
             this.gpuMhzPanel.Controls.Add(this.gpuMHZLabel);
             this.gpuMhzPanel.Controls.Add(this.gpuClockSpeedText);
             this.gpuMhzPanel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.gpuMhzPanel.Location = new System.Drawing.Point(404, 382);
+            this.gpuMhzPanel.Location = new System.Drawing.Point(418, 394);
             this.gpuMhzPanel.Name = "gpuMhzPanel";
             this.gpuMhzPanel.Size = new System.Drawing.Size(169, 43);
             this.gpuMhzPanel.TabIndex = 15;
@@ -322,7 +322,7 @@
             this.gpuClockSpeedLbl.AutoSize = true;
             this.gpuClockSpeedLbl.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpuClockSpeedLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
-            this.gpuClockSpeedLbl.Location = new System.Drawing.Point(448, 371);
+            this.gpuClockSpeedLbl.Location = new System.Drawing.Point(462, 383);
             this.gpuClockSpeedLbl.Name = "gpuClockSpeedLbl";
             this.gpuClockSpeedLbl.Size = new System.Drawing.Size(79, 17);
             this.gpuClockSpeedLbl.TabIndex = 17;
@@ -333,7 +333,7 @@
             this.cpuClockSpeedLbl.AutoSize = true;
             this.cpuClockSpeedLbl.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cpuClockSpeedLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
-            this.cpuClockSpeedLbl.Location = new System.Drawing.Point(457, 155);
+            this.cpuClockSpeedLbl.Location = new System.Drawing.Point(471, 167);
             this.cpuClockSpeedLbl.Name = "cpuClockSpeedLbl";
             this.cpuClockSpeedLbl.Size = new System.Drawing.Size(79, 17);
             this.cpuClockSpeedLbl.TabIndex = 20;
@@ -345,7 +345,7 @@
             this.cpuMhzPanel.Controls.Add(this.cpuMHZLabel);
             this.cpuMhzPanel.Controls.Add(this.cpuClockSpeedText);
             this.cpuMhzPanel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.cpuMhzPanel.Location = new System.Drawing.Point(413, 166);
+            this.cpuMhzPanel.Location = new System.Drawing.Point(427, 178);
             this.cpuMhzPanel.Name = "cpuMhzPanel";
             this.cpuMhzPanel.Size = new System.Drawing.Size(169, 43);
             this.cpuMhzPanel.TabIndex = 19;
@@ -380,7 +380,7 @@
             this.cpuClockSpeed.InnerColor = System.Drawing.Color.Empty;
             this.cpuClockSpeed.InnerMargin = 2;
             this.cpuClockSpeed.InnerWidth = -1;
-            this.cpuClockSpeed.Location = new System.Drawing.Point(413, 47);
+            this.cpuClockSpeed.Location = new System.Drawing.Point(427, 59);
             this.cpuClockSpeed.MarqueeAnimationSpeed = 2000;
             this.cpuClockSpeed.Name = "cpuClockSpeed";
             this.cpuClockSpeed.OuterColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(236)))), ((int)(((byte)(248)))));
@@ -406,7 +406,7 @@
             this.gpuFanLabel.AutoSize = true;
             this.gpuFanLabel.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpuFanLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
-            this.gpuFanLabel.Location = new System.Drawing.Point(654, 296);
+            this.gpuFanLabel.Location = new System.Drawing.Point(668, 308);
             this.gpuFanLabel.Name = "gpuFanLabel";
             this.gpuFanLabel.Size = new System.Drawing.Size(43, 24);
             this.gpuFanLabel.TabIndex = 22;
@@ -422,7 +422,7 @@
             this.gpuFan.InnerColor = System.Drawing.Color.Empty;
             this.gpuFan.InnerMargin = 2;
             this.gpuFan.InnerWidth = -1;
-            this.gpuFan.Location = new System.Drawing.Point(592, 263);
+            this.gpuFan.Location = new System.Drawing.Point(606, 275);
             this.gpuFan.MarqueeAnimationSpeed = 2000;
             this.gpuFan.Name = "gpuFan";
             this.gpuFan.OuterColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(236)))), ((int)(((byte)(248)))));
@@ -490,7 +490,7 @@
             // 
             this.cpuPanel.BackColor = System.Drawing.Color.Transparent;
             this.cpuPanel.Controls.Add(this.cpuName);
-            this.cpuPanel.Location = new System.Drawing.Point(13, 7);
+            this.cpuPanel.Location = new System.Drawing.Point(27, 19);
             this.cpuPanel.Name = "cpuPanel";
             this.cpuPanel.Size = new System.Drawing.Size(573, 214);
             this.cpuPanel.TabIndex = 26;
@@ -502,7 +502,7 @@
             this.ramPanel.Controls.Add(this.ramLoadLabel);
             this.ramPanel.Controls.Add(this.ramName);
             this.ramPanel.Controls.Add(this.ramLoad);
-            this.ramPanel.Location = new System.Drawing.Point(589, 7);
+            this.ramPanel.Location = new System.Drawing.Point(603, 19);
             this.ramPanel.Name = "ramPanel";
             this.ramPanel.Size = new System.Drawing.Size(172, 214);
             this.ramPanel.TabIndex = 27;
@@ -523,7 +523,7 @@
             // 
             this.gpuPanel.BackColor = System.Drawing.Color.Transparent;
             this.gpuPanel.Controls.Add(this.gpuName);
-            this.gpuPanel.Location = new System.Drawing.Point(13, 224);
+            this.gpuPanel.Location = new System.Drawing.Point(27, 236);
             this.gpuPanel.Name = "gpuPanel";
             this.gpuPanel.Size = new System.Drawing.Size(748, 214);
             this.gpuPanel.TabIndex = 27;
@@ -534,7 +534,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(784, 441);
+            this.ClientSize = new System.Drawing.Size(798, 463);
             this.Controls.Add(this.gpuFanLabel);
             this.Controls.Add(this.gpuFan);
             this.Controls.Add(this.cpuClockSpeedLbl);
