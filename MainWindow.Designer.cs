@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.cpuName = new System.Windows.Forms.Label();
-            this.gpuName = new System.Windows.Forms.Label();
+            this.gpuNameLabel = new System.Windows.Forms.Label();
             this.gpuTemp = new CircularProgressBar.CircularProgressBar();
             this.gpuClockSpeed = new CircularProgressBar.CircularProgressBar();
             this.gpuLoad = new CircularProgressBar.CircularProgressBar();
@@ -73,20 +73,20 @@
             this.cpuName.TabIndex = 1;
             this.cpuName.Text = "CPU:";
             // 
-            // gpuName
+            // gpuNameLabel
             // 
-            this.gpuName.AutoSize = true;
-            this.gpuName.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gpuName.Location = new System.Drawing.Point(6, 6);
-            this.gpuName.Name = "gpuName";
-            this.gpuName.Size = new System.Drawing.Size(49, 23);
-            this.gpuName.TabIndex = 3;
-            this.gpuName.Text = "GPU:";
+            this.gpuNameLabel.AutoSize = true;
+            this.gpuNameLabel.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gpuNameLabel.Location = new System.Drawing.Point(6, 6);
+            this.gpuNameLabel.Name = "gpuNameLabel";
+            this.gpuNameLabel.Size = new System.Drawing.Size(53, 23);
+            this.gpuNameLabel.TabIndex = 3;
+            this.gpuNameLabel.Text = "GPU: ";
             // 
             // gpuTemp
             // 
             this.gpuTemp.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
-            this.gpuTemp.AnimationSpeed = 300;
+            this.gpuTemp.AnimationSpeed = 200;
             this.gpuTemp.BackColor = System.Drawing.Color.Transparent;
             this.gpuTemp.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpuTemp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -118,7 +118,7 @@
             // gpuClockSpeed
             // 
             this.gpuClockSpeed.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
-            this.gpuClockSpeed.AnimationSpeed = 300;
+            this.gpuClockSpeed.AnimationSpeed = 200;
             this.gpuClockSpeed.BackColor = System.Drawing.Color.Transparent;
             this.gpuClockSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpuClockSpeed.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -144,12 +144,12 @@
             this.gpuClockSpeed.SuperscriptText = "";
             this.gpuClockSpeed.TabIndex = 6;
             this.gpuClockSpeed.TextMargin = new System.Windows.Forms.Padding(8, 8, 0, 0);
-            this.gpuClockSpeed.Value = 17;
+            this.gpuClockSpeed.Value = 15;
             // 
             // gpuLoad
             // 
             this.gpuLoad.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
-            this.gpuLoad.AnimationSpeed = 300;
+            this.gpuLoad.AnimationSpeed = 200;
             this.gpuLoad.BackColor = System.Drawing.Color.Transparent;
             this.gpuLoad.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpuLoad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -203,7 +203,7 @@
             // cpuLoad
             // 
             this.cpuLoad.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
-            this.cpuLoad.AnimationSpeed = 300;
+            this.cpuLoad.AnimationSpeed = 200;
             this.cpuLoad.BackColor = System.Drawing.Color.Transparent;
             this.cpuLoad.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cpuLoad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -235,7 +235,7 @@
             // cpuTemp
             // 
             this.cpuTemp.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
-            this.cpuTemp.AnimationSpeed = 300;
+            this.cpuTemp.AnimationSpeed = 200;
             this.cpuTemp.BackColor = System.Drawing.Color.Transparent;
             this.cpuTemp.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cpuTemp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -313,9 +313,9 @@
             this.gpuClockSpeedText.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpuClockSpeedText.Location = new System.Drawing.Point(25, 8);
             this.gpuClockSpeedText.Name = "gpuClockSpeedText";
-            this.gpuClockSpeedText.Size = new System.Drawing.Size(102, 39);
+            this.gpuClockSpeedText.Size = new System.Drawing.Size(93, 39);
             this.gpuClockSpeedText.TabIndex = 18;
-            this.gpuClockSpeedText.Text = "1500 ";
+            this.gpuClockSpeedText.Text = "1000";
             // 
             // gpuClockSpeedLbl
             // 
@@ -366,9 +366,9 @@
             this.cpuClockSpeedText.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cpuClockSpeedText.Location = new System.Drawing.Point(25, 8);
             this.cpuClockSpeedText.Name = "cpuClockSpeedText";
-            this.cpuClockSpeedText.Size = new System.Drawing.Size(102, 39);
+            this.cpuClockSpeedText.Size = new System.Drawing.Size(93, 39);
             this.cpuClockSpeedText.TabIndex = 18;
-            this.cpuClockSpeedText.Text = "1500 ";
+            this.cpuClockSpeedText.Text = "1000";
             // 
             // cpuClockSpeed
             // 
@@ -399,7 +399,7 @@
             this.cpuClockSpeed.SuperscriptText = "";
             this.cpuClockSpeed.TabIndex = 18;
             this.cpuClockSpeed.TextMargin = new System.Windows.Forms.Padding(8, 8, 0, 0);
-            this.cpuClockSpeed.Value = 17;
+            this.cpuClockSpeed.Value = 15;
             // 
             // gpuFanLabel
             // 
@@ -415,7 +415,7 @@
             // gpuFan
             // 
             this.gpuFan.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
-            this.gpuFan.AnimationSpeed = 300;
+            this.gpuFan.AnimationSpeed = 200;
             this.gpuFan.BackColor = System.Drawing.Color.Transparent;
             this.gpuFan.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpuFan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -457,7 +457,7 @@
             // ramLoad
             // 
             this.ramLoad.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
-            this.ramLoad.AnimationSpeed = 300;
+            this.ramLoad.AnimationSpeed = 200;
             this.ramLoad.BackColor = System.Drawing.Color.Transparent;
             this.ramLoad.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ramLoad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -522,7 +522,7 @@
             // gpuPanel
             // 
             this.gpuPanel.BackColor = System.Drawing.Color.Transparent;
-            this.gpuPanel.Controls.Add(this.gpuName);
+            this.gpuPanel.Controls.Add(this.gpuNameLabel);
             this.gpuPanel.Location = new System.Drawing.Point(27, 236);
             this.gpuPanel.Name = "gpuPanel";
             this.gpuPanel.Size = new System.Drawing.Size(748, 214);
@@ -573,7 +573,7 @@
 
         #endregion
         private System.Windows.Forms.Label cpuName;
-        private System.Windows.Forms.Label gpuName;
+        private System.Windows.Forms.Label gpuNameLabel;
         private CircularProgressBar.CircularProgressBar gpuTemp;
         private CircularProgressBar.CircularProgressBar gpuClockSpeed;
         private CircularProgressBar.CircularProgressBar gpuLoad;
