@@ -1,4 +1,4 @@
-﻿namespace HWStats
+namespace HWStats
 {
     partial class MainWindow
     {
@@ -556,6 +556,7 @@
             this.Controls.Add(this.gpuPanel);
             this.Name = "MainWindow";
             this.Text = "HWStats";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UserExit);
             this.gpuMhzPanel.ResumeLayout(false);
             this.gpuMhzPanel.PerformLayout();
             this.cpuMhzPanel.ResumeLayout(false);

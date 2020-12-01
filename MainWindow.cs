@@ -7,13 +7,17 @@ namespace HWStats
 {
     public partial class MainWindow : Form
     {
+        bool alive = true;
         public MainWindow()
         {
             InitializeComponent();
             // FullScreenBuild();
-            Thread gpuThread = new Thread(gpuUpdate);
-            gpuThread.IsBackground = true;
-            gpuThread.Start();
+            new Thread(gpuUpdate).Start();
+
+        }
+        private void UserExit(object sender, FormClosingEventArgs e)
+        {
+            alive = false;
         }
 
         private void FullScreenBuild()
@@ -46,7 +50,7 @@ namespace HWStats
             unsafe
             {
                 GPUImporter.GPUStats* gpuStats = (GPUImporter.GPUStats*)GPUImporter.GetGPUStats(gpuQuery);
-                while (true)
+                while (alive)
                 {
                     updateStat(gpuTemp, gpuStats->temp);
                     updateStat(gpuLoad, gpuStats->load);
@@ -56,7 +60,6 @@ namespace HWStats
                     Thread.Sleep(1000);
                 }
             }
-            // TODO: !!
             GPUImporter.DestroyGPUQuery(gpuQuery);
         }
 
@@ -68,10 +71,14 @@ namespace HWStats
             int maxVal = 86;
             if (clock >= 0 && clock <= maxClockSpeed)
             {
+               // int tmp = maxVal / minVal;
+               // int tmp1 = (int) ( (clock / (double) maxClockSpeed) * 100);
+
                 int clockPercent = (int) ((clock / (double) maxClockSpeed) * 100);
                 int scaledPercent = (int) (((clockPercent - minVal) / (double) (maxVal - minVal)) * 100);
                 clockSpeedText.Invoke(new MethodInvoker(delegate
                 {
+                    //clockSpeed.Value = scaledPercent;
                     clockSpeedText.Text = clock.ToString();
                 }));
             }
