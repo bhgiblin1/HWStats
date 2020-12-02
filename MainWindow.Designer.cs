@@ -54,9 +54,10 @@ namespace HWStats
             this.ramLoad = new CircularProgressBar.CircularProgressBar();
             this.cpuPanel = new System.Windows.Forms.Panel();
             this.ramPanel = new System.Windows.Forms.Panel();
+            this.ramGBLabel = new System.Windows.Forms.Label();
+            this.memoryUsedText = new System.Windows.Forms.Label();
             this.ramLoadLabel = new System.Windows.Forms.Label();
             this.gpuPanel = new System.Windows.Forms.Panel();
-            this.memorySpeedText = new System.Windows.Forms.Label();
             this.gpuMhzPanel.SuspendLayout();
             this.cpuMhzPanel.SuspendLayout();
             this.cpuPanel.SuspendLayout();
@@ -500,7 +501,8 @@ namespace HWStats
             // ramPanel
             // 
             this.ramPanel.BackColor = System.Drawing.Color.Transparent;
-            this.ramPanel.Controls.Add(this.memorySpeedText);
+            this.ramPanel.Controls.Add(this.ramGBLabel);
+            this.ramPanel.Controls.Add(this.memoryUsedText);
             this.ramPanel.Controls.Add(this.ramLoadLabel);
             this.ramPanel.Controls.Add(this.ramName);
             this.ramPanel.Controls.Add(this.ramLoad);
@@ -509,6 +511,28 @@ namespace HWStats
             this.ramPanel.Size = new System.Drawing.Size(172, 214);
             this.ramPanel.TabIndex = 27;
             this.ramPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.BorderPanels_Paint);
+            // 
+            // ramGBLabel
+            // 
+            this.ramGBLabel.AutoSize = true;
+            this.ramGBLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ramGBLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
+            this.ramGBLabel.Location = new System.Drawing.Point(76, 166);
+            this.ramGBLabel.Name = "ramGBLabel";
+            this.ramGBLabel.Size = new System.Drawing.Size(22, 15);
+            this.ramGBLabel.TabIndex = 30;
+            this.ramGBLabel.Text = "GB";
+            // 
+            // memorySpeedText
+            // 
+            this.memoryUsedText.AutoSize = true;
+            this.memoryUsedText.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.memoryUsedText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
+            this.memoryUsedText.Location = new System.Drawing.Point(61, 146);
+            this.memoryUsedText.Name = "memorySpeedText";
+            this.memoryUsedText.Size = new System.Drawing.Size(45, 23);
+            this.memoryUsedText.TabIndex = 29;
+            this.memoryUsedText.Text = "0.00";
             // 
             // ramLoadLabel
             // 
@@ -530,17 +554,6 @@ namespace HWStats
             this.gpuPanel.Size = new System.Drawing.Size(748, 214);
             this.gpuPanel.TabIndex = 27;
             this.gpuPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.BorderPanels_Paint);
-            // 
-            // memorySpeedText
-            // 
-            this.memorySpeedText.AutoSize = true;
-            this.memorySpeedText.Font = new System.Drawing.Font("Calibri", 12.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.memorySpeedText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
-            this.memorySpeedText.Location = new System.Drawing.Point(56, 148);
-            this.memorySpeedText.Name = "memorySpeedText";
-            this.memorySpeedText.Size = new System.Drawing.Size(42, 21);
-            this.memorySpeedText.TabIndex = 29;
-            this.memorySpeedText.Text = "0.00";
             // 
             // MainWindow
             // 
@@ -614,7 +627,8 @@ namespace HWStats
         private System.Windows.Forms.Panel ramPanel;
         private System.Windows.Forms.Panel gpuPanel;
         private System.Windows.Forms.Label ramLoadLabel;
-        private System.Windows.Forms.Label memorySpeedText;
+        private System.Windows.Forms.Label memoryUsedText;
+        private System.Windows.Forms.Label ramGBLabel;
     }
 }
 

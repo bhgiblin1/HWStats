@@ -49,7 +49,10 @@ namespace HWStats
             var gpuNamePtr = GPUImporter.GetGPUName(gpuQuery);
             var gpuName = Marshal.PtrToStringUni(gpuNamePtr);
             uint maxClockSpeed = GPUImporter.GetGPUMaxClock(gpuQuery);
-            gpuNameLabel.Text += gpuName;
+            gpuNameLabel.Invoke(new MethodInvoker(delegate
+            {
+                gpuNameLabel.Text += gpuName;
+            }));
             unsafe
             {
                 var gpuStats = (GPUImporter.GPUStats*) GPUImporter.GetGPUStats(gpuQuery);
@@ -77,12 +80,14 @@ namespace HWStats
                     updateStat(ramLoad, memoryStats->load);
                     try
                     {
-                        memorySpeedText.Invoke(new MethodInvoker(delegate
+                        memoryUsedText.Invoke(new MethodInvoker(delegate
                         {
-                            memorySpeedText.Text = Math.Round(memoryStats->amtUsed, 2).ToString() + " GB";
+                            memoryUsedText.Text = Math.Round(memoryStats->amtUsed, 2).ToString();
                         }));
                     }
                     catch (Exception) { }
+
+                    Thread.Sleep(1000);
                 }
             }
             MemoryImporter.DestroyMemoryQuery(memoryQuery);
