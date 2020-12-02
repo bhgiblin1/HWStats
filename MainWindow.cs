@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using System.Threading;
 using System;
+using System.Runtime.InteropServices;
 
 namespace HWStats
 {
@@ -11,7 +12,7 @@ namespace HWStats
         public MainWindow()
         {
             InitializeComponent();
-            // FullScreenBuild();
+            //FullScreenBuild();
             new Thread(gpuUpdate).Start();
             new Thread(memoryUpdate).Start();
 
@@ -45,9 +46,10 @@ namespace HWStats
         private void gpuUpdate()
         {
             var gpuQuery = GPUImporter.CreateGPUQuery();
-            //string gpuName = GPUImporter.GetGPUName(gpuQuery);
+            var gpuNamePtr = GPUImporter.GetGPUName(gpuQuery);
+            var gpuName = Marshal.PtrToStringUni(gpuNamePtr);
             uint maxClockSpeed = GPUImporter.GetGPUMaxClock(gpuQuery);
-            // gpuNameLabel.Text += gpuName;
+            gpuNameLabel.Text += gpuName;
             unsafe
             {
                 var gpuStats = (GPUImporter.GPUStats*) GPUImporter.GetGPUStats(gpuQuery);

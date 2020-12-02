@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Runtime.InteropServices;
 
 
@@ -16,7 +17,7 @@ namespace HWStats
         static public extern IntPtr GetGPUStats(IntPtr gpuQuery);
         
         [DllImport("HWStatsLib.dll", CallingConvention = CallingConvention.Cdecl)]
-        static public extern string GetGPUName(IntPtr gpuQuery);
+        static public extern IntPtr GetGPUName(IntPtr gpuQuery);
        
         [DllImport("HWStatsLib.dll", CallingConvention = CallingConvention.Cdecl)]
         static public extern uint GetGPUMaxClock(IntPtr gpuQuery);
