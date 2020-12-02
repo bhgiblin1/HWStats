@@ -56,6 +56,7 @@ namespace HWStats
             this.ramPanel = new System.Windows.Forms.Panel();
             this.ramLoadLabel = new System.Windows.Forms.Label();
             this.gpuPanel = new System.Windows.Forms.Panel();
+            this.memorySpeedText = new System.Windows.Forms.Label();
             this.gpuMhzPanel.SuspendLayout();
             this.cpuMhzPanel.SuspendLayout();
             this.cpuPanel.SuspendLayout();
@@ -499,6 +500,7 @@ namespace HWStats
             // ramPanel
             // 
             this.ramPanel.BackColor = System.Drawing.Color.Transparent;
+            this.ramPanel.Controls.Add(this.memorySpeedText);
             this.ramPanel.Controls.Add(this.ramLoadLabel);
             this.ramPanel.Controls.Add(this.ramName);
             this.ramPanel.Controls.Add(this.ramLoad);
@@ -528,6 +530,17 @@ namespace HWStats
             this.gpuPanel.Size = new System.Drawing.Size(748, 214);
             this.gpuPanel.TabIndex = 27;
             this.gpuPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.BorderPanels_Paint);
+            // 
+            // memorySpeedText
+            // 
+            this.memorySpeedText.AutoSize = true;
+            this.memorySpeedText.Font = new System.Drawing.Font("Calibri", 12.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.memorySpeedText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
+            this.memorySpeedText.Location = new System.Drawing.Point(56, 148);
+            this.memorySpeedText.Name = "memorySpeedText";
+            this.memorySpeedText.Size = new System.Drawing.Size(42, 21);
+            this.memorySpeedText.TabIndex = 29;
+            this.memorySpeedText.Text = "0.00";
             // 
             // MainWindow
             // 
@@ -601,6 +614,7 @@ namespace HWStats
         private System.Windows.Forms.Panel ramPanel;
         private System.Windows.Forms.Panel gpuPanel;
         private System.Windows.Forms.Label ramLoadLabel;
+        private System.Windows.Forms.Label memorySpeedText;
     }
 }
 

@@ -13,6 +13,7 @@ namespace HWStats
             InitializeComponent();
             // FullScreenBuild();
             new Thread(gpuUpdate).Start();
+            new Thread(memoryUpdate).Start();
 
         }
         private void UserExit(object sender, FormClosingEventArgs e)
@@ -49,7 +50,7 @@ namespace HWStats
             // gpuNameLabel.Text += gpuName;
             unsafe
             {
-                GPUImporter.GPUStats* gpuStats = (GPUImporter.GPUStats*)GPUImporter.GetGPUStats(gpuQuery);
+                var gpuStats = (GPUImporter.GPUStats*) GPUImporter.GetGPUStats(gpuQuery);
                 while (alive)
                 {
                     updateStat(gpuTemp, gpuStats->temp);
@@ -63,6 +64,28 @@ namespace HWStats
             GPUImporter.DestroyGPUQuery(gpuQuery);
         }
 
+        private void memoryUpdate()
+        {
+            var memoryQuery = MemoryImporter.CreateMemoryQuery();
+            unsafe
+            {
+                var memoryStats = (MemoryImporter.MemoryStats*) MemoryImporter.GetMemoryStats(memoryQuery);
+                while (alive)
+                {
+                    updateStat(ramLoad, memoryStats->load);
+                    try
+                    {
+                        memorySpeedText.Invoke(new MethodInvoker(delegate
+                        {
+                            memorySpeedText.Text = Math.Round(memoryStats->amtUsed, 2).ToString() + " GB";
+                        }));
+                    }
+                    catch (Exception) { }
+                }
+            }
+            MemoryImporter.DestroyMemoryQuery(memoryQuery);
+        }
+
         private void updateClock(CircularProgressBar.CircularProgressBar clockSpeed, Label clockSpeedText, uint maxClockSpeed, uint clock)
         {
             // the clockspeed progress indicator's 0% is really value = 15%. 100% is really value = 86%
@@ -71,16 +94,17 @@ namespace HWStats
             int maxVal = 86;
             if (clock >= 0 && clock <= maxClockSpeed)
             {
-               // int tmp = maxVal / minVal;
-               // int tmp1 = (int) ( (clock / (double) maxClockSpeed) * 100);
-
-                int clockPercent = (int) ((clock / (double) maxClockSpeed) * 100);
-                int scaledPercent = (int) (((clockPercent - minVal) / (double) (maxVal - minVal)) * 100);
-                clockSpeedText.Invoke(new MethodInvoker(delegate
+                double clockPercent = (clock / (double) maxClockSpeed);
+                double scaledPercent = ((maxVal - minVal) * clockPercent) + minVal;
+                try
                 {
-                    //clockSpeed.Value = scaledPercent;
-                    clockSpeedText.Text = clock.ToString();
-                }));
+                    clockSpeedText.Invoke(new MethodInvoker(delegate
+                    {
+                        clockSpeed.Value = (int)scaledPercent;
+                        clockSpeedText.Text = clock.ToString();
+                    }));
+                }
+                catch (Exception) { }
             }
         }
 
@@ -88,11 +112,15 @@ namespace HWStats
         {
             if (val >= 0 && val <= 100)
             {
-                toUpdate.Invoke(new MethodInvoker(delegate
+                try
                 {
-                    toUpdate.Value = (int)val;
-                    toUpdate.Text = val.ToString();
-                }));
+                    toUpdate.Invoke(new MethodInvoker(delegate
+                    {
+                        toUpdate.Value = (int)val;
+                        toUpdate.Text = val.ToString();
+                    }));
+                }
+                catch (Exception) { }
             }
         }
     }
