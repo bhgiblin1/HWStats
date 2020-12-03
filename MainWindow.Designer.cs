@@ -28,7 +28,7 @@ namespace HWStats
         /// </summary>
         private void InitializeComponent()
         {
-            this.cpuName = new System.Windows.Forms.Label();
+            this.cpuNameLabel = new System.Windows.Forms.Label();
             this.gpuNameLabel = new System.Windows.Forms.Label();
             this.gpuTemp = new CircularProgressBar.CircularProgressBar();
             this.gpuClockSpeed = new CircularProgressBar.CircularProgressBar();
@@ -65,15 +65,15 @@ namespace HWStats
             this.gpuPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // cpuName
+            // cpuNameLabel
             // 
-            this.cpuName.AutoSize = true;
-            this.cpuName.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cpuName.Location = new System.Drawing.Point(6, 5);
-            this.cpuName.Name = "cpuName";
-            this.cpuName.Size = new System.Drawing.Size(47, 23);
-            this.cpuName.TabIndex = 1;
-            this.cpuName.Text = "CPU:";
+            this.cpuNameLabel.AutoSize = true;
+            this.cpuNameLabel.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cpuNameLabel.Location = new System.Drawing.Point(6, 5);
+            this.cpuNameLabel.Name = "cpuNameLabel";
+            this.cpuNameLabel.Size = new System.Drawing.Size(51, 23);
+            this.cpuNameLabel.TabIndex = 1;
+            this.cpuNameLabel.Text = "CPU: ";
             // 
             // gpuNameLabel
             // 
@@ -491,7 +491,7 @@ namespace HWStats
             // cpuPanel
             // 
             this.cpuPanel.BackColor = System.Drawing.Color.Transparent;
-            this.cpuPanel.Controls.Add(this.cpuName);
+            this.cpuPanel.Controls.Add(this.cpuNameLabel);
             this.cpuPanel.Location = new System.Drawing.Point(27, 19);
             this.cpuPanel.Name = "cpuPanel";
             this.cpuPanel.Size = new System.Drawing.Size(573, 214);
@@ -523,13 +523,13 @@ namespace HWStats
             this.ramGBLabel.TabIndex = 30;
             this.ramGBLabel.Text = "GB";
             // 
-            // memorySpeedText
+            // memoryUsedText
             // 
             this.memoryUsedText.AutoSize = true;
             this.memoryUsedText.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.memoryUsedText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
             this.memoryUsedText.Location = new System.Drawing.Point(61, 146);
-            this.memoryUsedText.Name = "memorySpeedText";
+            this.memoryUsedText.Name = "memoryUsedText";
             this.memoryUsedText.Size = new System.Drawing.Size(45, 23);
             this.memoryUsedText.TabIndex = 29;
             this.memoryUsedText.Text = "0.00";
@@ -599,7 +599,7 @@ namespace HWStats
         }
 
         #endregion
-        private System.Windows.Forms.Label cpuName;
+        private System.Windows.Forms.Label cpuNameLabel;
         private System.Windows.Forms.Label gpuNameLabel;
         private CircularProgressBar.CircularProgressBar gpuTemp;
         private CircularProgressBar.CircularProgressBar gpuClockSpeed;

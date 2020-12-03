@@ -9,14 +9,17 @@ namespace HWStats
     public partial class MainWindow : Form
     {
         bool alive = true;
+        // should be put into the dll, but need to figure out a way to read this.. 8700k overclocks btwn 4.5-5.1. 
+        uint cpuMaxClockWithTurbo = 5000;
         public MainWindow()
         {
             InitializeComponent();
             //FullScreenBuild();
             new Thread(gpuUpdate).Start();
             new Thread(memoryUpdate).Start();
-
+            new Thread(cpuUpdate).Start();
         }
+
         private void UserExit(object sender, FormClosingEventArgs e)
         {
             alive = false;
@@ -93,6 +96,31 @@ namespace HWStats
             MemoryImporter.DestroyMemoryQuery(memoryQuery);
         }
 
+        private void cpuUpdate()
+        {
+            var cpuQuery = CPUImporter.CreateCPUQuery();
+            var cpuNamePtr = CPUImporter.GetCPUName(cpuQuery);
+            var cpuName = Marshal.PtrToStringUni(cpuNamePtr);
+            cpuNameLabel.Invoke(new MethodInvoker(delegate
+            {
+                cpuNameLabel.Text += cpuName;
+            }));
+            short nominalClock = CPUImporter.GetCPUNominalClock(cpuQuery);
+            unsafe 
+            {
+                var cpuStats = (CPUImporter.CPUStats*)CPUImporter.GetCPUStats(cpuQuery);
+                while (alive)
+                {
+                    updateStat(cpuTemp, cpuStats->temp);
+                    updateStat(cpuLoad, (int) Math.Round(cpuStats->load));
+                    var clockSpeed = nominalClock * (cpuStats->clockPercent / 100.0);
+                    updateClock(cpuClockSpeed, cpuClockSpeedText, cpuMaxClockWithTurbo, (uint)clockSpeed);
+                    Thread.Sleep(1000);
+                }
+            }
+            CPUImporter.DestroyCPUQuery(cpuQuery);
+        }
+
         private void updateClock(CircularProgressBar.CircularProgressBar clockSpeed, Label clockSpeedText, uint maxClockSpeed, uint clock)
         {
             // the clockspeed progress indicator's 0% is really value = 15%. 100% is really value = 86%
@@ -114,8 +142,13 @@ namespace HWStats
                 catch (Exception) { }
             }
         }
-
         private void updateStat(CircularProgressBar.CircularProgressBar toUpdate, uint val)
+        {
+            updateStat(toUpdate, (int)val);
+            return;
+        }
+
+        private void updateStat(CircularProgressBar.CircularProgressBar toUpdate, int val)
         {
             if (val >= 0 && val <= 100)
             {
@@ -123,7 +156,7 @@ namespace HWStats
                 {
                     toUpdate.Invoke(new MethodInvoker(delegate
                     {
-                        toUpdate.Value = (int)val;
+                        toUpdate.Value = val;
                         toUpdate.Text = val.ToString();
                     }));
                 }
