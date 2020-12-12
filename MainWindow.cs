@@ -14,7 +14,7 @@ namespace HWStats
         public MainWindow()
         {
             InitializeComponent();
-            //FullScreenBuild();
+            FullScreenBuild();
             new Thread(gpuUpdate).Start();
             new Thread(memoryUpdate).Start();
             new Thread(cpuUpdate).Start();

@@ -28,6 +28,7 @@ namespace HWStats
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.cpuNameLabel = new System.Windows.Forms.Label();
             this.gpuNameLabel = new System.Windows.Forms.Label();
             this.gpuTemp = new CircularProgressBar.CircularProgressBar();
@@ -580,6 +581,7 @@ namespace HWStats
             this.Controls.Add(this.ramPanel);
             this.Controls.Add(this.cpuPanel);
             this.Controls.Add(this.gpuPanel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainWindow";
             this.Text = "HWStats";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UserExit);
