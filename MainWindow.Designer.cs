@@ -51,19 +51,19 @@ namespace HWStats
             this.cpuClockSpeed = new CircularProgressBar.CircularProgressBar();
             this.gpuFanLabel = new System.Windows.Forms.Label();
             this.gpuFan = new CircularProgressBar.CircularProgressBar();
-            this.ramName = new System.Windows.Forms.Label();
-            this.ramLoad = new CircularProgressBar.CircularProgressBar();
             this.cpuPanel = new System.Windows.Forms.Panel();
-            this.ramPanel = new System.Windows.Forms.Panel();
-            this.ramGBLabel = new System.Windows.Forms.Label();
-            this.memoryUsedText = new System.Windows.Forms.Label();
-            this.ramLoadLabel = new System.Windows.Forms.Label();
             this.gpuPanel = new System.Windows.Forms.Panel();
+            this.ramPanel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.ramGB = new System.Windows.Forms.Label();
+            this.vRamLoad = new CircularProgressBar.CircularProgressBar();
+            this.ramLoad = new CircularProgressBar.CircularProgressBar();
+            this.label4 = new System.Windows.Forms.Label();
             this.gpuMhzPanel.SuspendLayout();
             this.cpuMhzPanel.SuspendLayout();
             this.cpuPanel.SuspendLayout();
-            this.ramPanel.SuspendLayout();
             this.gpuPanel.SuspendLayout();
+            this.ramPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // cpuNameLabel
@@ -447,48 +447,6 @@ namespace HWStats
             this.gpuFan.TextMargin = new System.Windows.Forms.Padding(8, 30, 10, 50);
             this.gpuFan.Value = 68;
             // 
-            // ramName
-            // 
-            this.ramName.AutoSize = true;
-            this.ramName.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ramName.Location = new System.Drawing.Point(3, 4);
-            this.ramName.Name = "ramName";
-            this.ramName.Size = new System.Drawing.Size(50, 23);
-            this.ramName.TabIndex = 23;
-            this.ramName.Text = "RAM";
-            // 
-            // ramLoad
-            // 
-            this.ramLoad.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
-            this.ramLoad.AnimationSpeed = 200;
-            this.ramLoad.BackColor = System.Drawing.Color.Transparent;
-            this.ramLoad.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ramLoad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ramLoad.InnerColor = System.Drawing.Color.Empty;
-            this.ramLoad.InnerMargin = 2;
-            this.ramLoad.InnerWidth = -1;
-            this.ramLoad.Location = new System.Drawing.Point(7, 40);
-            this.ramLoad.MarqueeAnimationSpeed = 2000;
-            this.ramLoad.Name = "ramLoad";
-            this.ramLoad.OuterColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(236)))), ((int)(((byte)(248)))));
-            this.ramLoad.OuterMargin = -25;
-            this.ramLoad.OuterWidth = 25;
-            this.ramLoad.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(190)))));
-            this.ramLoad.ProgressWidth = 16;
-            this.ramLoad.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 25F);
-            this.ramLoad.Size = new System.Drawing.Size(160, 160);
-            this.ramLoad.StartAngle = 270;
-            this.ramLoad.SubscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
-            this.ramLoad.SubscriptMargin = new System.Windows.Forms.Padding(10, 5, 0, 0);
-            this.ramLoad.SubscriptText = "";
-            this.ramLoad.SuperscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
-            this.ramLoad.SuperscriptMargin = new System.Windows.Forms.Padding(5, 50, 0, 0);
-            this.ramLoad.SuperscriptText = "%";
-            this.ramLoad.TabIndex = 24;
-            this.ramLoad.Text = "0";
-            this.ramLoad.TextMargin = new System.Windows.Forms.Padding(8, 30, 10, 50);
-            this.ramLoad.Value = 68;
-            // 
             // cpuPanel
             // 
             this.cpuPanel.BackColor = System.Drawing.Color.Transparent;
@@ -498,53 +456,6 @@ namespace HWStats
             this.cpuPanel.Size = new System.Drawing.Size(573, 214);
             this.cpuPanel.TabIndex = 26;
             this.cpuPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.BorderPanels_Paint);
-            // 
-            // ramPanel
-            // 
-            this.ramPanel.BackColor = System.Drawing.Color.Transparent;
-            this.ramPanel.Controls.Add(this.ramGBLabel);
-            this.ramPanel.Controls.Add(this.memoryUsedText);
-            this.ramPanel.Controls.Add(this.ramLoadLabel);
-            this.ramPanel.Controls.Add(this.ramName);
-            this.ramPanel.Controls.Add(this.ramLoad);
-            this.ramPanel.Location = new System.Drawing.Point(603, 19);
-            this.ramPanel.Name = "ramPanel";
-            this.ramPanel.Size = new System.Drawing.Size(172, 214);
-            this.ramPanel.TabIndex = 27;
-            this.ramPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.BorderPanels_Paint);
-            // 
-            // ramGBLabel
-            // 
-            this.ramGBLabel.AutoSize = true;
-            this.ramGBLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ramGBLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
-            this.ramGBLabel.Location = new System.Drawing.Point(76, 166);
-            this.ramGBLabel.Name = "ramGBLabel";
-            this.ramGBLabel.Size = new System.Drawing.Size(22, 15);
-            this.ramGBLabel.TabIndex = 30;
-            this.ramGBLabel.Text = "GB";
-            // 
-            // memoryUsedText
-            // 
-            this.memoryUsedText.AutoSize = true;
-            this.memoryUsedText.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.memoryUsedText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
-            this.memoryUsedText.Location = new System.Drawing.Point(61, 146);
-            this.memoryUsedText.Name = "memoryUsedText";
-            this.memoryUsedText.Size = new System.Drawing.Size(45, 23);
-            this.memoryUsedText.TabIndex = 29;
-            this.memoryUsedText.Text = "0.00";
-            // 
-            // ramLoadLabel
-            // 
-            this.ramLoadLabel.AutoSize = true;
-            this.ramLoadLabel.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ramLoadLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
-            this.ramLoadLabel.Location = new System.Drawing.Point(62, 72);
-            this.ramLoadLabel.Name = "ramLoadLabel";
-            this.ramLoadLabel.Size = new System.Drawing.Size(57, 24);
-            this.ramLoadLabel.TabIndex = 28;
-            this.ramLoadLabel.Text = "LOAD";
             // 
             // gpuPanel
             // 
@@ -556,12 +467,123 @@ namespace HWStats
             this.gpuPanel.TabIndex = 27;
             this.gpuPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.BorderPanels_Paint);
             // 
+            // ramPanel
+            // 
+            this.ramPanel.BackColor = System.Drawing.Color.Transparent;
+            this.ramPanel.Controls.Add(this.label1);
+            this.ramPanel.Controls.Add(this.ramGB);
+            this.ramPanel.Controls.Add(this.vRamLoad);
+            this.ramPanel.Controls.Add(this.ramLoad);
+            this.ramPanel.Controls.Add(this.label4);
+            this.ramPanel.Location = new System.Drawing.Point(603, 19);
+            this.ramPanel.Name = "ramPanel";
+            this.ramPanel.Size = new System.Drawing.Size(172, 230);
+            this.ramPanel.TabIndex = 37;
+            this.ramPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.BorderPanels_Paint);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
+            this.label1.Location = new System.Drawing.Point(110, 197);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(20, 13);
+            this.label1.TabIndex = 27;
+            this.label1.Text = "GB";
+            // 
+            // ramGB
+            // 
+            this.ramGB.AutoSize = true;
+            this.ramGB.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ramGB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
+            this.ramGB.Location = new System.Drawing.Point(44, 99);
+            this.ramGB.Name = "ramGB";
+            this.ramGB.Size = new System.Drawing.Size(20, 13);
+            this.ramGB.TabIndex = 26;
+            this.ramGB.Text = "GB";
+            // 
+            // vRamLoad
+            // 
+            this.vRamLoad.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
+            this.vRamLoad.AnimationSpeed = 200;
+            this.vRamLoad.BackColor = System.Drawing.Color.Transparent;
+            this.vRamLoad.Font = new System.Drawing.Font("Calibri", 21F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.vRamLoad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
+            this.vRamLoad.InnerColor = System.Drawing.Color.Empty;
+            this.vRamLoad.InnerMargin = 2;
+            this.vRamLoad.InnerWidth = -1;
+            this.vRamLoad.Location = new System.Drawing.Point(69, 127);
+            this.vRamLoad.MarqueeAnimationSpeed = 2000;
+            this.vRamLoad.Name = "vRamLoad";
+            this.vRamLoad.OuterColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(236)))), ((int)(((byte)(248)))));
+            this.vRamLoad.OuterMargin = -25;
+            this.vRamLoad.OuterWidth = 25;
+            this.vRamLoad.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(190)))));
+            this.vRamLoad.ProgressWidth = 11;
+            this.vRamLoad.SecondaryFont = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
+            this.vRamLoad.Size = new System.Drawing.Size(100, 100);
+            this.vRamLoad.StartAngle = 270;
+            this.vRamLoad.SubscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
+            this.vRamLoad.SubscriptMargin = new System.Windows.Forms.Padding(-22, 12, 0, 0);
+            this.vRamLoad.SubscriptText = "";
+            this.vRamLoad.SuperscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
+            this.vRamLoad.SuperscriptMargin = new System.Windows.Forms.Padding(5, 27, 0, 0);
+            this.vRamLoad.SuperscriptText = "";
+            this.vRamLoad.TabIndex = 25;
+            this.vRamLoad.Text = "00.00";
+            this.vRamLoad.TextMargin = new System.Windows.Forms.Padding(6, 20, 8, 40);
+            this.vRamLoad.Value = 68;
+            // 
+            // ramLoad
+            // 
+            this.ramLoad.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
+            this.ramLoad.AnimationSpeed = 200;
+            this.ramLoad.BackColor = System.Drawing.Color.Transparent;
+            this.ramLoad.Font = new System.Drawing.Font("Calibri", 21F);
+            this.ramLoad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
+            this.ramLoad.InnerColor = System.Drawing.Color.Empty;
+            this.ramLoad.InnerMargin = 2;
+            this.ramLoad.InnerWidth = -1;
+            this.ramLoad.Location = new System.Drawing.Point(3, 30);
+            this.ramLoad.MarqueeAnimationSpeed = 2000;
+            this.ramLoad.Name = "ramLoad";
+            this.ramLoad.OuterColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(236)))), ((int)(((byte)(248)))));
+            this.ramLoad.OuterMargin = -25;
+            this.ramLoad.OuterWidth = 25;
+            this.ramLoad.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(190)))));
+            this.ramLoad.ProgressWidth = 11;
+            this.ramLoad.SecondaryFont = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ramLoad.Size = new System.Drawing.Size(100, 100);
+            this.ramLoad.StartAngle = 270;
+            this.ramLoad.SubscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
+            this.ramLoad.SubscriptMargin = new System.Windows.Forms.Padding(-22, 12, 0, 0);
+            this.ramLoad.SubscriptText = "";
+            this.ramLoad.SuperscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(151)))), ((int)(((byte)(151)))));
+            this.ramLoad.SuperscriptMargin = new System.Windows.Forms.Padding(5, 27, 0, 0);
+            this.ramLoad.SuperscriptText = "";
+            this.ramLoad.TabIndex = 24;
+            this.ramLoad.Text = "00.00";
+            this.ramLoad.TextMargin = new System.Windows.Forms.Padding(6, 20, 8, 40);
+            this.ramLoad.Value = 68;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(3, 4);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(117, 23);
+            this.label4.TabIndex = 23;
+            this.label4.Text = "RAM / VRAM";
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(798, 463);
+            this.Controls.Add(this.ramPanel);
             this.Controls.Add(this.gpuFanLabel);
             this.Controls.Add(this.gpuFan);
             this.Controls.Add(this.cpuClockSpeedLbl);
@@ -578,7 +600,6 @@ namespace HWStats
             this.Controls.Add(this.gpuLoad);
             this.Controls.Add(this.gpuTemp);
             this.Controls.Add(this.gpuClockSpeed);
-            this.Controls.Add(this.ramPanel);
             this.Controls.Add(this.cpuPanel);
             this.Controls.Add(this.gpuPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -591,10 +612,10 @@ namespace HWStats
             this.cpuMhzPanel.PerformLayout();
             this.cpuPanel.ResumeLayout(false);
             this.cpuPanel.PerformLayout();
-            this.ramPanel.ResumeLayout(false);
-            this.ramPanel.PerformLayout();
             this.gpuPanel.ResumeLayout(false);
             this.gpuPanel.PerformLayout();
+            this.ramPanel.ResumeLayout(false);
+            this.ramPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -623,14 +644,14 @@ namespace HWStats
         private CircularProgressBar.CircularProgressBar cpuClockSpeed;
         private System.Windows.Forms.Label gpuFanLabel;
         private CircularProgressBar.CircularProgressBar gpuFan;
-        private System.Windows.Forms.Label ramName;
-        private CircularProgressBar.CircularProgressBar ramLoad;
         private System.Windows.Forms.Panel cpuPanel;
-        private System.Windows.Forms.Panel ramPanel;
         private System.Windows.Forms.Panel gpuPanel;
-        private System.Windows.Forms.Label ramLoadLabel;
-        private System.Windows.Forms.Label memoryUsedText;
-        private System.Windows.Forms.Label ramGBLabel;
+        private System.Windows.Forms.Panel ramPanel;
+        private System.Windows.Forms.Label label4;
+        private CircularProgressBar.CircularProgressBar ramLoad;
+        private CircularProgressBar.CircularProgressBar vRamLoad;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label ramGB;
     }
 }
 

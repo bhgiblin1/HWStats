@@ -28,6 +28,8 @@ namespace HWStats
             public uint clock;
             public uint fanUsage;
             public uint load;
+            public double memoryTotal;
+            public double memoryUsage;
         }
     }
 }

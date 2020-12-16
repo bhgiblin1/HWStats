@@ -59,12 +59,15 @@ namespace HWStats
             unsafe
             {
                 var gpuStats = (GPUImporter.GPUStats*) GPUImporter.GetGPUStats(gpuQuery);
+                gpuStats->memoryUsage = 0;
+
                 while (alive)
                 {
                     updateStat(gpuTemp, gpuStats->temp);
                     updateStat(gpuLoad, gpuStats->load);
                     updateStat(gpuFan, gpuStats->fanUsage);
                     updateClock(gpuClockSpeed, gpuClockSpeedText, maxClockSpeed, gpuStats->clock);
+                    updateMemoryStat(vRamLoad, Convert.ToInt32((gpuStats->memoryUsage / gpuStats->memoryTotal) * 100), Math.Round(gpuStats->memoryUsage, 2));
 
                     Thread.Sleep(1000);
                 }
@@ -80,22 +83,12 @@ namespace HWStats
                 var memoryStats = (MemoryImporter.MemoryStats*) MemoryImporter.GetMemoryStats(memoryQuery);
                 while (alive)
                 {
-                    updateStat(ramLoad, memoryStats->load);
-                    try
-                    {
-                        memoryUsedText.Invoke(new MethodInvoker(delegate
-                        {
-                            memoryUsedText.Text = Math.Round(memoryStats->amtUsed, 2).ToString();
-                        }));
-                    }
-                    catch (Exception) { }
-
+                    updateMemoryStat(ramLoad, (int) memoryStats->load, Math.Round(memoryStats->amtUsed, 2));
                     Thread.Sleep(1000);
                 }
             }
             MemoryImporter.DestroyMemoryQuery(memoryQuery);
         }
-
         private void cpuUpdate()
         {
             var cpuQuery = CPUImporter.CreateCPUQuery();
@@ -157,6 +150,21 @@ namespace HWStats
                     toUpdate.Invoke(new MethodInvoker(delegate
                     {
                         toUpdate.Value = val;
+                        toUpdate.Text = val.ToString();
+                    }));
+                }
+                catch (Exception) { }
+            }
+        }
+        private void updateMemoryStat(CircularProgressBar.CircularProgressBar toUpdate, int load, double val)
+        {
+            if (load >= 0 && load <= 100)
+            {
+                try
+                {
+                    toUpdate.Invoke(new MethodInvoker(delegate
+                    {
+                        toUpdate.Value = load;
                         toUpdate.Text = val.ToString();
                     }));
                 }
