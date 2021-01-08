@@ -606,6 +606,7 @@ namespace HWStats
             this.Name = "MainWindow";
             this.Text = "HWStats";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UserExit);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainWindowKeyDown);
             this.gpuMhzPanel.ResumeLayout(false);
             this.gpuMhzPanel.PerformLayout();
             this.cpuMhzPanel.ResumeLayout(false);

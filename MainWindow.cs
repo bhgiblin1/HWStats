@@ -9,12 +9,12 @@ namespace HWStats
     public partial class MainWindow : Form
     {
         bool alive = true;
+        bool fullScreen = false;
         // should be put into the dll, but need to figure out a way to read this.. 8700k overclocks btwn 4.5-5.1. 
         uint cpuMaxClockWithTurbo = 5000;
         public MainWindow()
         {
             InitializeComponent();
-            FullScreenBuild();
             new Thread(gpuUpdate).Start();
             new Thread(memoryUpdate).Start();
             new Thread(cpuUpdate).Start();
@@ -25,11 +25,31 @@ namespace HWStats
             alive = false;
         }
 
-        private void FullScreenBuild()
+        private void MainWindowKeyDown(object sender, KeyEventArgs e)
+        {
+            // 122 is F11
+            if (e.KeyValue == 122)
+            {
+                if (!fullScreen)
+                    EnterFullScreen();
+                else
+                    ExitFullScreen();
+            }
+        }
+
+        private void EnterFullScreen()
         {
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
             this.TopMost = true;
+            fullScreen = true;
+        }
+
+        private void ExitFullScreen()
+        {
+            this.FormBorderStyle = FormBorderStyle.Sizable;
+            this.WindowState = FormWindowState.Normal;
+            fullScreen = false;
         }
 
         private void BorderPanels_Paint(object sender, PaintEventArgs e)
