@@ -10,6 +10,9 @@ namespace HWStats
     {
         bool alive = true;
         bool fullScreen = false;
+        bool inDarkMode = false;
+        Color progressText, outerColor, progressColor, progressLabels;
+
         // should be put into the dll, but need to figure out a way to read this.. 8700k overclocks btwn 4.5-5.1. 
         uint cpuMaxClockWithTurbo = 5000;
         public MainWindow()
@@ -27,13 +30,18 @@ namespace HWStats
 
         private void MainWindowKeyDown(object sender, KeyEventArgs e)
         {
-            // 122 is F11
+            // F10 - swap in/out of dark mode
+            // F11 - swap in/out of fullscreen
             if (e.KeyValue == 122)
             {
                 if (!fullScreen)
                     EnterFullScreen();
                 else
                     ExitFullScreen();
+            }
+            else if (e.KeyValue == 121)
+            {
+                SwapTexture();
             }
         }
 
@@ -190,6 +198,59 @@ namespace HWStats
                 }
                 catch (Exception) { }
             }
+        }
+
+        private void SwapTexture()
+        {
+            Color backColor, label;
+            if (inDarkMode)
+            {
+                outerColor = Color.FromArgb(219, 236, 248);
+                progressColor = Color.FromArgb(44, 130, 190); // blue
+                backColor = Color.White;
+                progressLabels = Color.FromArgb(151, 151, 151);
+                progressText = Color.FromArgb(64, 64, 64);
+                label = Color.Black;
+            }
+            else
+            {
+                outerColor = Color.FromArgb(122, 122, 122);
+                progressColor = Color.FromArgb(187, 134, 252); //purple
+                backColor = Color.FromArgb(30, 30, 30); // grey
+                progressLabels = Color.White;
+                progressText = Color.White;
+                label = Color.White;
+            }
+            cpuNameLabel.ForeColor = label;
+            gpuNameLabel.ForeColor = label;
+            ramVramLabel.ForeColor = label;
+
+            SwapProgressBarColors(cpuTemp);
+            SwapProgressBarColors(cpuLoad);
+            SwapProgressBarColors(cpuClockSpeed);
+            cpuMHZLabel.ForeColor = progressLabels;
+            cpuClockSpeedText.ForeColor = label;
+
+            SwapProgressBarColors(vRamLoad);
+            SwapProgressBarColors(ramLoad);
+
+            SwapProgressBarColors(gpuTemp);
+            SwapProgressBarColors(gpuLoad);
+            SwapProgressBarColors(gpuClockSpeed);
+            gpuMHZLabel.ForeColor = progressLabels;
+            gpuClockSpeedText.ForeColor = label;
+            SwapProgressBarColors(gpuFan);
+
+            this.BackColor = backColor;
+            inDarkMode = !inDarkMode;
+        }
+
+        private void SwapProgressBarColors(CircularProgressBar.CircularProgressBar progressBar)
+        {
+            progressBar.ForeColor = progressText;
+            progressBar.OuterColor = outerColor;
+            progressBar.ProgressColor = progressColor;
+            progressBar.SubscriptColor = progressLabels;
         }
     }
 }

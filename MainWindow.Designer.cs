@@ -58,7 +58,7 @@ namespace HWStats
             this.ramGB = new System.Windows.Forms.Label();
             this.vRamLoad = new CircularProgressBar.CircularProgressBar();
             this.ramLoad = new CircularProgressBar.CircularProgressBar();
-            this.label4 = new System.Windows.Forms.Label();
+            this.ramVramLabel = new System.Windows.Forms.Label();
             this.gpuMhzPanel.SuspendLayout();
             this.cpuMhzPanel.SuspendLayout();
             this.cpuPanel.SuspendLayout();
@@ -474,7 +474,7 @@ namespace HWStats
             this.ramPanel.Controls.Add(this.ramGB);
             this.ramPanel.Controls.Add(this.vRamLoad);
             this.ramPanel.Controls.Add(this.ramLoad);
-            this.ramPanel.Controls.Add(this.label4);
+            this.ramPanel.Controls.Add(this.ramVramLabel);
             this.ramPanel.Location = new System.Drawing.Point(603, 19);
             this.ramPanel.Name = "ramPanel";
             this.ramPanel.Size = new System.Drawing.Size(172, 230);
@@ -567,15 +567,15 @@ namespace HWStats
             this.ramLoad.TextMargin = new System.Windows.Forms.Padding(6, 20, 8, 40);
             this.ramLoad.Value = 68;
             // 
-            // label4
+            // ramVramLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, 4);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(117, 23);
-            this.label4.TabIndex = 23;
-            this.label4.Text = "RAM / VRAM";
+            this.ramVramLabel.AutoSize = true;
+            this.ramVramLabel.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ramVramLabel.Location = new System.Drawing.Point(3, 4);
+            this.ramVramLabel.Name = "ramVramLabel";
+            this.ramVramLabel.Size = new System.Drawing.Size(117, 23);
+            this.ramVramLabel.TabIndex = 23;
+            this.ramVramLabel.Text = "RAM / VRAM";
             // 
             // MainWindow
             // 
@@ -648,7 +648,7 @@ namespace HWStats
         private System.Windows.Forms.Panel cpuPanel;
         private System.Windows.Forms.Panel gpuPanel;
         private System.Windows.Forms.Panel ramPanel;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label ramVramLabel;
         private CircularProgressBar.CircularProgressBar ramLoad;
         private CircularProgressBar.CircularProgressBar vRamLoad;
         private System.Windows.Forms.Label label1;
